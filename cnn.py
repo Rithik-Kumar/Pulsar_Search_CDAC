@@ -4,7 +4,6 @@ from config import (PHASE_TIME_PLOT_WIDTH, PHASE_TIME_PLOT_HEIGHT,
                     PHASE_BAND_PLOT_WIDTH, PHASE_BAND_PLOT_HEIGHT,
                     TIME_PLOT_LENGTH, CHI_VS_DM_PLOT_LENGTH)
 
-
 def cnn_model_fn(features, labels, mode, params):
 
     A_input_shape = (-1, PHASE_TIME_PLOT_HEIGHT, PHASE_TIME_PLOT_WIDTH, 1)
