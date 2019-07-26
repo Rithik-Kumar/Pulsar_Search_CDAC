@@ -24,14 +24,12 @@ def main(unused_argv):
     # Samples with label '1' are fewer than those with label '0'.
     counts = np.bincount(data_train['labels']).astype(np.float)
     class_weights = counts[0] / counts
-
     run_config = tf.estimator.RunConfig(
         model_dir=str(MODEL_DIR),
         save_summary_steps=1,
         keep_checkpoint_max=100,
         log_step_count_steps=1,
         train_distribute=None)
-
     classifier = tf.estimator.Estimator(
         model_fn=cnn_model_fn,
         params={'class_weights': class_weights, 'return_all_layers': False},
